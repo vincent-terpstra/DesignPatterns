@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Observer.Interfaces;
+﻿namespace DesignPatterns.Observer.Pull.Interfaces;
 
 public interface IDisplay
 {

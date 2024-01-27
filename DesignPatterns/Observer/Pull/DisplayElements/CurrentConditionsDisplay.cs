@@ -1,12 +1,12 @@
-﻿using DesignPatterns.Observer.Interfaces;
+﻿using DesignPatterns.Observer.Pull.Interfaces;
 
-namespace DesignPatterns.Observer.DisplayElements;
+namespace DesignPatterns.Observer.Pull.DisplayElements;
 
 public class CurrentConditionsDisplay: IDisplay, IObserver
 {
-    private readonly ISubject _subject;
+    private readonly WeatherSubject _subject;
 
-    public CurrentConditionsDisplay(ISubject subject)
+    public CurrentConditionsDisplay(WeatherSubject subject)
     {
         _subject = subject;
         _subject.Register(this);
@@ -21,10 +21,10 @@ public class CurrentConditionsDisplay: IDisplay, IObserver
         Console.WriteLine($"Current conditions: {_temperature} F degrees and {_humidity} % humidity");
     }
 
-    public void Update(float temperature, float humidity, float pressure)
+    public void Update()
     {
-        _temperature = temperature;
-        _humidity = humidity;
-        _pressure = pressure;
+        _temperature = _subject.GetTemperature();
+        _humidity = _subject.GetHumidity();
+        _pressure = _subject.GetPressure();
     }
 }
