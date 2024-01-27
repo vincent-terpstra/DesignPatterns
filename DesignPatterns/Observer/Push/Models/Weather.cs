@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Observer.Pull.Models;
+﻿namespace DesignPatterns.Observer.Push.Models;
 
 public class WeatherData
 {
