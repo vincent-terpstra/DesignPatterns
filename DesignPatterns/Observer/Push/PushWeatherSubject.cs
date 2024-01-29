@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Observer.Pull.Interfaces;
+﻿using DesignPatterns.Observer.Models;
+using DesignPatterns.Observer.Pull.Interfaces;
 using DesignPatterns.Observer.Push.Interfaces;
-using DesignPatterns.Observer.Push.Models;
 
 namespace DesignPatterns.Observer.Push;
 

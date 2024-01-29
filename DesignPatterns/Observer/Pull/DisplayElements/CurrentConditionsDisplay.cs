@@ -4,9 +4,9 @@ namespace DesignPatterns.Observer.Pull.DisplayElements;
 
 public class CurrentConditionsDisplay: IDisplay, IObserver
 {
-    private readonly WeatherSubject _subject;
+    private readonly PullWeatherSubject _subject;
 
-    public CurrentConditionsDisplay(WeatherSubject subject)
+    public CurrentConditionsDisplay(PullWeatherSubject subject)
     {
         _subject = subject;
         _subject.Register(this);

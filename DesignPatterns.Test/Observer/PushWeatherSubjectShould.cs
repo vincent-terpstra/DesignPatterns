@@ -1,6 +1,6 @@
-﻿using DesignPatterns.Observer.Push;
+﻿using DesignPatterns.Observer.Models;
+using DesignPatterns.Observer.Push;
 using DesignPatterns.Observer.Push.Interfaces;
-using DesignPatterns.Observer.Push.Models;
 using FluentAssertions;
 
 namespace DesignPatterns.Test.Observer;

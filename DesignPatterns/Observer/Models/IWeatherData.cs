@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Observer.Pull.Interfaces;
+﻿namespace DesignPatterns.Observer.Models;
 
 public interface IWeatherData
 {

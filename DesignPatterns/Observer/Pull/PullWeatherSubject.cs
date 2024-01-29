@@ -1,8 +1,9 @@
-﻿using DesignPatterns.Observer.Pull.Interfaces;
+﻿using DesignPatterns.Observer.Models;
+using DesignPatterns.Observer.Pull.Interfaces;
 
 namespace DesignPatterns.Observer.Pull;
 
-public class WeatherSubject : ISubject, IWeatherData
+public class PullWeatherSubject : ISubject, IWeatherData
 {
     private readonly IWeatherData _weatherData;
     private readonly List<IObserver> _subscribers = new();
@@ -11,7 +12,7 @@ public class WeatherSubject : ISubject, IWeatherData
     private float _humidity;
     private float _pressure;
 
-    public WeatherSubject(IWeatherData weatherData)
+    public PullWeatherSubject(IWeatherData weatherData)
     {
         _weatherData = weatherData;
     }
