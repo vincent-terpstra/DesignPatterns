@@ -1,13 +1,12 @@
 ﻿using DesignPatterns.Strategy;
 using DesignPatterns.Strategy.Interfaces;
-using Moq;
 
 namespace DesignPatterns.Test.Strategy;
 
-public class DuckTests
+public class DuckShould
 {
     [Fact]
-    public void Quack_Should_Call_Quack()
+    public void On_Quack_Should_Call_Quack()
     {
         // Arrange 
         var quack = new Mock<IQuackBehaviour>();
@@ -22,7 +21,7 @@ public class DuckTests
     }
 
     [Fact]
-    public void Swim_Behaviour_Switched()
+    public void Allow_Swim_Behaviour_Switched()
     {
         // Arrange
         var swim = new Mock<ISwimBehaviour>();
