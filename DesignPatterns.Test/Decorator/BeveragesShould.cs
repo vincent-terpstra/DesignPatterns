@@ -9,13 +9,17 @@ public class BeveragesShould
     public void Soy_Milk_Decaf()
     {
         Beverage soy_milk_decaf = new Decaf()
+            {
+                CupSize = Cupsize.Bigger
+            }
             .AddMilk()
             .AddSoy();
 
+        soy_milk_decaf.CupSize.Should().Be(Cupsize.Bigger);
         soy_milk_decaf.Cost.Should().Be(2.10m);
         soy_milk_decaf.Description.Should().Be("Decaf Coffee, Milk, Soy");
     }
-    
+
     [Fact]
     public void DarkRoast_Mocha_Whip()
     {

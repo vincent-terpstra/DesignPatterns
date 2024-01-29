@@ -9,6 +9,11 @@ public class Condiment : Beverage
         _beverage = beverage;
     }
 
+    public override Cupsize CupSize
+    {
+        get => _beverage.CupSize;
+        set => _beverage.CupSize = value;
+    }
     public override string Description => _beverage.Description + $", {_description}";
     public override decimal Cost => _beverage.Cost + _cost;
 
