@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.Observer.Push;
 using DesignPatterns.Observer.Push.Interfaces;
 using DesignPatterns.Observer.Push.Models;
+using FluentAssertions;
 
 namespace DesignPatterns.Test.Observer;
 
@@ -19,8 +20,10 @@ public class PushWeatherSubjectShould
 
         PushWeatherSubject subject = new PushWeatherSubject(data);
 
+        WeatherData? result = null;
         var observer = new Mock<IPushObserver<WeatherData>>();
-            observer.Setup(o => o.Update(It.IsAny<WeatherData>()));
+        observer.Setup(o => o.Update(It.IsAny<WeatherData>()))
+            .Callback((WeatherData r) => result = r);
         
         // Act
         subject.Subscribe(observer.Object);
@@ -28,8 +31,9 @@ public class PushWeatherSubjectShould
 
         // Assert
         observer.Verify(o => o.Update(It.IsAny<WeatherData>()), Times.Once);
+        data.Should().BeEquivalentTo(result);
     }
-    
+
     [Fact]
     public void Allow_Multiple_Observers()
     {
