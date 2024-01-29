@@ -1,8 +1,9 @@
-﻿using DesignPatterns.Observer.Pull.Interfaces;
+﻿using DesignPatterns.Observer.Models;
+using DesignPatterns.Observer.Pull.Interfaces;
 
 namespace DesignPatterns.Observer.Pull.DisplayElements;
 
-public class CurrentConditionsDisplay: IDisplay, IObserver
+public class CurrentConditionsDisplay: IDisplay, IObserver, IWeatherData
 {
     private readonly PullWeatherSubject _subject;
 
@@ -11,6 +12,8 @@ public class CurrentConditionsDisplay: IDisplay, IObserver
         _subject = subject;
         _subject.Register(this);
     }
+    
+    
     
     private float _temperature;
     private float _humidity;
@@ -27,4 +30,8 @@ public class CurrentConditionsDisplay: IDisplay, IObserver
         _humidity = _subject.Humidity;
         _pressure = _subject.Pressure;
     }
+
+    public float Temperature => _temperature;
+    public float Humidity => _humidity;
+    public float Pressure => _pressure;
 }
