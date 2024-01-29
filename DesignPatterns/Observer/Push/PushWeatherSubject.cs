@@ -17,6 +17,7 @@ public class PushWeatherSubject : IPushSubject<WeatherData>
 
     public void Subscribe(IPushObserver<WeatherData> observer)
     {
+        _onUpdate -= observer.Update;
         _onUpdate += observer.Update;
     }
 
