@@ -1,6 +1,4 @@
-﻿using DesignPatterns.Observer.Pull.Interfaces;
-
-namespace DesignPatterns.Observer.Push.Models;
+﻿namespace DesignPatterns.Observer.Models;
 
 public class WeatherData : IWeatherData
 {
