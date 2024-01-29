@@ -29,9 +29,9 @@ public class PushWeatherSubject : IPushSubject<WeatherData>
     {
         WeatherData data = new WeatherData()
         {
-            Temperature = _weatherData.GetTemperature(),
-            Humidity = _weatherData.GetHumidity(),
-            Pressure = _weatherData.GetPressure()
+            Temperature = _weatherData.Temperature,
+            Humidity = _weatherData.Humidity,
+            Pressure = _weatherData.Pressure
         };
         
         _onUpdate?.Invoke(data);

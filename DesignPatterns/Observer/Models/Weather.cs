@@ -1,6 +1,8 @@
-﻿namespace DesignPatterns.Observer.Push.Models;
+﻿using DesignPatterns.Observer.Pull.Interfaces;
 
-public class WeatherData
+namespace DesignPatterns.Observer.Push.Models;
+
+public class WeatherData : IWeatherData
 {
     public required float Temperature { get; init; }
     public required float Humidity { get; init; }

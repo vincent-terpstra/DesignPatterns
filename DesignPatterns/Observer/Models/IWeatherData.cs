@@ -2,7 +2,7 @@
 
 public interface IWeatherData
 {
-    float GetTemperature();
-    float GetHumidity();
-    float GetPressure();
+    float Temperature { get; }
+    float Humidity { get; }
+    float Pressure { get; }
 }

@@ -33,9 +33,9 @@ public class WeatherSubject : ISubject, IWeatherData
 
     public void NotifyObservers()
     {
-        _temp = _weatherData.GetTemperature();
-        _humidity = _weatherData.GetHumidity();
-        _pressure = _weatherData.GetPressure();
+        _temp = _weatherData.Temperature;
+        _humidity = _weatherData.Humidity;
+        _pressure = _weatherData.Pressure;
 
         foreach (var subscriber in _subscribers)
         {
@@ -43,9 +43,9 @@ public class WeatherSubject : ISubject, IWeatherData
         }
     }
 
-    public float GetTemperature() => _temp;
+    public float Temperature => _temp;
 
-    public float GetHumidity() => _humidity;
+    public float Humidity => _humidity;
 
-    public float GetPressure() => _pressure;
+    public float Pressure => _pressure;
 }

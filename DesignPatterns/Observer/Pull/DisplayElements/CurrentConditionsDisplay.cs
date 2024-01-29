@@ -23,8 +23,8 @@ public class CurrentConditionsDisplay: IDisplay, IObserver
 
     public void Update()
     {
-        _temperature = _subject.GetTemperature();
-        _humidity = _subject.GetHumidity();
-        _pressure = _subject.GetPressure();
+        _temperature = _subject.Temperature;
+        _humidity = _subject.Humidity;
+        _pressure = _subject.Pressure;
     }
 }
