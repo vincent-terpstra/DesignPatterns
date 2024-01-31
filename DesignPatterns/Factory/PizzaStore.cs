@@ -1,10 +1,12 @@
-﻿namespace DesignPatterns.Factory;
+﻿using DesignPatterns.Factory.Interfaces;
+
+namespace DesignPatterns.Factory;
 
 public class PizzaStore
 {
-    private readonly PizzaFactory _pizzaFactory;
+    private readonly IPizzaFactory _pizzaFactory;
 
-    public PizzaStore(PizzaFactory pizzaFactory)
+    public PizzaStore(IPizzaFactory pizzaFactory)
     {
         _pizzaFactory = pizzaFactory;
     }

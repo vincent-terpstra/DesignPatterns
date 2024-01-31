@@ -1,8 +1,10 @@
-﻿using DesignPatterns.Factory.Pizzas;
+﻿using System.Buffers;
+using DesignPatterns.Factory.Interfaces;
+using DesignPatterns.Factory.Pizzas;
 
 namespace DesignPatterns.Factory;
 
-public class PizzaFactory
+public class PizzaFactory : IPizzaFactory
 {
     public Pizza Create(PizzaType type)
     {
