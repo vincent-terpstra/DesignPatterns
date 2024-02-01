@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Factory;
+using DesignPatterns.Factory.Interfaces;
 using DesignPatterns.Factory.Pizzas;
 
 namespace DesignPatterns.Test.Factory;
@@ -10,7 +11,8 @@ public class PizzaStoreShould
     {
         // Arrange
         PizzaFactory factory = new();
-        PizzaStore store = new(factory);
+        IPizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
+        PizzaStore store = new(factory, ingredientFactory);
 
         // Act
         var pizza = store.Order(PizzaType.Cheese);
