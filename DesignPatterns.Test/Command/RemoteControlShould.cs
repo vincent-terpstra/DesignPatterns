@@ -33,11 +33,12 @@ public class RemoteControlShould
         // Arrange
         RemoteControl remoteControl = new();
         var select = () => remoteControl[10];
+        var assign = () => remoteControl[-1] = (RemoteOnlyHasTenButtons, RemoteOnlyHasTenButtons);
 
         // Act
 
         // Assert
         select.Should().Throw<ArgumentException>();
-
+        assign.Should().Throw<ArgumentException>();
     }
 }
