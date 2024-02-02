@@ -41,4 +41,31 @@ public class RemoteControlShould
         select.Should().Throw<ArgumentException>();
         assign.Should().Throw<ArgumentException>();
     }
+
+    [Fact]
+    public void RemoteAllowsUndo()
+    {
+        // Arrange
+        RemoteControl remoteControl = new();
+        Light light = new();
+
+        remoteControl[0] = (light.On, light.Off);
+
+        // Act
+        // Assert
+        remoteControl[0].On();
+        light.IsOn.Should().BeTrue();
+        remoteControl.Undo();
+        light.IsOn.Should().BeFalse();
+
+        
+        remoteControl[0].Off();
+        light.IsOn.Should().BeFalse();
+        remoteControl.Undo();
+        light.IsOn.Should().BeTrue();
+
+        
+
+
+    }
 }
