@@ -18,7 +18,12 @@ public class GarageDoor : ICommand
         _isUp = false;
         Console.WriteLine("Closing Garage Door");
     }
+
+    public CommandAction GarageDoorUpCommand => new(Up, Down);
+    public CommandAction GarageDoorDownCommand => new(Down, Up);
     
-    
-    public void Execute() => Up();
+
+    Action ICommand.Execute => Up;
+
+    Action ICommand.Undo => Down;
 }

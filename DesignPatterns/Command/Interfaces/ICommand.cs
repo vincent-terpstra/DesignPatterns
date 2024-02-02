@@ -1,6 +1,7 @@
 ﻿namespace DesignPatterns.Command.Interfaces;
 
-public interface ICommand
+public interface ICommand 
 {
-    public void Execute();
+    public Action Execute { get; }
+    public Action Undo { get; }
 }

@@ -1,13 +1,11 @@
-﻿using DesignPatterns.Command.Interfaces;
+﻿namespace DesignPatterns.Command;
 
-namespace DesignPatterns.Command;
-
-public class RemoteControl
+public class ActionRemoteControl
 {
     private readonly List<(Action On, Action Off)> _commands = new();
     private static Action Empty = () => { };
 
-    public RemoteControl()
+    public ActionRemoteControl()
     {
         int idx = 0;
         while (ValidCommand(idx))

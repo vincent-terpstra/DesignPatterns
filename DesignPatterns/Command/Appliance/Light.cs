@@ -1,4 +1,6 @@
-﻿namespace DesignPatterns.Command.Appliance;
+﻿using DesignPatterns.Command.Interfaces;
+
+namespace DesignPatterns.Command.Appliance;
 
 public class Light
 {
@@ -17,4 +19,7 @@ public class Light
     }
 
     public bool IsOn => _isOn;
+
+    public CommandAction LightOnCommand => new(On, Off);
+    public CommandAction LightOffCommand => new(Off, On);
 }

@@ -3,24 +3,24 @@ using DesignPatterns.Command.Appliance;
 
 namespace DesignPatterns.Test.Command;
 
-public class RemoteControlShould
+public class ActionRemoteControlShould
 {
     [Fact]
     public void TestRemote()
     {
         // Arrange
-        RemoteControl remoteControl = new();
+        ActionRemoteControl actionRemoteControl = new();
         Light light = new Light();
         GarageDoor garageDoor = new GarageDoor();
 
-        remoteControl[0] = (light.On, light.Off);
-        remoteControl[1] = (garageDoor.Up, garageDoor.Down);
+        actionRemoteControl[0] = (light.On, light.Off);
+        actionRemoteControl[1] = (garageDoor.Up, garageDoor.Down);
 
         // Act
-        remoteControl[0].On();
-        remoteControl[0].Off();
-        remoteControl[1].On();
-        remoteControl[2].Off();
+        actionRemoteControl[0].On();
+        actionRemoteControl[0].Off();
+        actionRemoteControl[1].On();
+        actionRemoteControl[2].Off();
         
         // Assert
         light.IsOn.Should().BeFalse();
@@ -31,9 +31,9 @@ public class RemoteControlShould
     public void RemoteOnlyHasTenButtons()
     {
         // Arrange
-        RemoteControl remoteControl = new();
-        var select = () => remoteControl[10];
-        var assign = () => remoteControl[-1] = (RemoteOnlyHasTenButtons, RemoteOnlyHasTenButtons);
+        ActionRemoteControl actionRemoteControl = new();
+        var select = () => actionRemoteControl[10];
+        var assign = () => actionRemoteControl[-1] = (RemoteOnlyHasTenButtons, RemoteOnlyHasTenButtons);
 
         // Act
 
@@ -46,22 +46,22 @@ public class RemoteControlShould
     public void RemoteAllowsUndo()
     {
         // Arrange
-        RemoteControl remoteControl = new();
+        ActionRemoteControl actionRemoteControl = new();
         Light light = new();
 
-        remoteControl[0] = (light.On, light.Off);
+        actionRemoteControl[0] = (light.On, light.Off);
 
         // Act
         // Assert
-        remoteControl[0].On();
+        actionRemoteControl[0].On();
         light.IsOn.Should().BeTrue();
-        remoteControl.Undo();
+        actionRemoteControl.Undo();
         light.IsOn.Should().BeFalse();
 
         
-        remoteControl[0].Off();
+        actionRemoteControl[0].Off();
         light.IsOn.Should().BeFalse();
-        remoteControl.Undo();
+        actionRemoteControl.Undo();
         light.IsOn.Should().BeTrue();
 
         

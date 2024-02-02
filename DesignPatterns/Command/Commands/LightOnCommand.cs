@@ -11,9 +11,8 @@ public class LightOnCommand : ICommand
     {
         _light = light;
     }
-    
-    public void Execute()
-    {
-        _light.On();
-    }
+
+    public Action Execute => _light.On;
+
+    public Action Undo => _light.Off;
 }
