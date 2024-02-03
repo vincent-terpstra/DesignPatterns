@@ -2,10 +2,9 @@
 
 public class CommandAction : ICommand
 {
-    public static Action Empty = () => { };
     
     public CommandAction(Action execute, Action? undo = null)
-        => (Execute, Undo) = (execute, undo ?? Empty );
+        => (Execute, Undo) = (execute, undo ?? ICommand.Empty );
     public Action Execute { get; init; }
     public Action Undo { get; init; }
 }
