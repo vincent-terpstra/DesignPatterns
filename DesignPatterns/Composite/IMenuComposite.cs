@@ -6,4 +6,6 @@ public interface IMenuComposite
     string Description { get; }
 
     void Print();
+
+    IEnumerable<MenuItem> GetEnumerator();
 }

@@ -10,7 +10,12 @@ public class MenuItem : IMenuComposite
     public void Print()
     {
         string vegetarian = IsVegetarian ? "(v)" : string.Empty;
-        Console.WriteLine($"  {Name} {vegetarian}, {Price:C})");
+        Console.WriteLine($"  {Name} {vegetarian}, {Price:C}");
         Console.WriteLine( $" -- {Description}");
+    }
+
+    public IEnumerable<MenuItem> GetEnumerator()
+    {
+        yield return this;
     }
 }

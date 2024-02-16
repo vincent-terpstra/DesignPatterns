@@ -4,11 +4,17 @@ public class MenuProgram
 {
     public static void Main()
     {
-        CreateMenu().Print();
-        Console.ReadLine();
+        var allMenus = CreateMenu();
+        
+        //CreateMenu().Print();
+
+        foreach (var item in allMenus.GetEnumerator().Where(i => i.IsVegetarian))
+        {
+            item.Print();
+        }
     }
 
-    private static IMenuComposite CreateMenu()
+    private static Menu CreateMenu()
     {
         Menu allMenus = new Menu("ALL MENUS", "All Menus combined");
 
