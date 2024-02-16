@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Iterator.Menus;
 
-public class PancakeHouseMenu
+public class PancakeHouseMenu : IMenu
 {
     private MenuItem[] menus;
 
@@ -36,6 +36,7 @@ public class PancakeHouseMenu
     {
         return menus;
     }
-    
-    
+
+
+    public IEnumerable<MenuItem> MenuItems => menus.AsEnumerable();
 }

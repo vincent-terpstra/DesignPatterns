@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.Iterator;
 using DesignPatterns.Iterator.Exceptions;
+using DesignPatterns.Iterator.Menus;
 
 namespace DesignPatterns.Test.Iterator;
 
@@ -7,7 +8,7 @@ public class MenuServiceShould
 {
     public MenuServiceShould()
     {
-        _menuService = new (new(), new());
+        _menuService = new (new DinerMenu(), new PancakeHouseMenu());
     }
 
     private readonly MenuService _menuService;

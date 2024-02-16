@@ -5,10 +5,10 @@ namespace DesignPatterns.Iterator;
 
 public class MenuService
 {
-    private readonly DinerMenu _dinerMenu;
-    private readonly PancakeHouseMenu _pancakeHouseMenu;
+    private readonly IMenu _dinerMenu;
+    private readonly IMenu _pancakeHouseMenu;
     
-    public MenuService(DinerMenu dinerMenu, PancakeHouseMenu pancakeHouseMenu)
+    public MenuService(IMenu dinerMenu, IMenu pancakeHouseMenu)
     {
         _dinerMenu = dinerMenu;
         _pancakeHouseMenu = pancakeHouseMenu;
@@ -16,18 +16,18 @@ public class MenuService
     
     public IEnumerable<MenuItem> GetMenuItems()
     {
-        return _dinerMenu.AllItems.AsEnumerable()
-            .Concat( _pancakeHouseMenu.GetItems().AsEnumerable());
+        return _dinerMenu.MenuItems
+            .Concat( _pancakeHouseMenu.MenuItems);
     }
 
     public IEnumerable<MenuItem> GetBreakfastMenu()
     {
-        return _pancakeHouseMenu.GetItems().AsEnumerable();
+        return _pancakeHouseMenu.MenuItems;
     }
 
     public IEnumerable<MenuItem> GetLunchMenuItems()
     {
-        return _dinerMenu.AllItems.AsEnumerable();
+        return _dinerMenu.MenuItems;
     }
 
     public IEnumerable<MenuItem> GetVegetarianItems()

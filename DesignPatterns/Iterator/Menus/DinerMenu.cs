@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Iterator.Menus;
 
-public class DinerMenu
+public class DinerMenu : IMenu
 {
     private List<MenuItem> _items;
 
@@ -35,4 +35,5 @@ public class DinerMenu
     }
 
     public IReadOnlyList<MenuItem> AllItems => _items.AsReadOnly();
+    public IEnumerable<MenuItem> MenuItems => _items.AsEnumerable();
 }
