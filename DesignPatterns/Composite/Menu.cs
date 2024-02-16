@@ -1,6 +1,8 @@
-﻿namespace DesignPatterns.Composite;
+﻿using System.Collections;
 
-public class Menu : IMenuComposite
+namespace DesignPatterns.Composite;
+
+public class Menu : IMenuComposite, IEnumerable<MenuItem>
 {
     public Menu(string name, string description)
         => (Name, Description) = (name, description);
@@ -9,13 +11,11 @@ public class Menu : IMenuComposite
     public string Description { get; init; }
 
     private readonly List<IMenuComposite> _menuItems = new();
-    
-    public IEnumerable<MenuItem> GetEnumerator()
-    {
-        return _menuItems.SelectMany(item => item.GetEnumerator());
-    }
 
-    public IEnumerable<MenuItem> AsEnumerableYield()
+    public IEnumerable<MenuItem> GetMenuItems()
+        => _menuItems.SelectMany(item => item.GetMenuItems());
+    
+    public IEnumerable<MenuItem> GetMenuItemsYield()
     {
         foreach (var item in _menuItems)
         {
@@ -24,7 +24,7 @@ public class Menu : IMenuComposite
                 yield return mi;
             }
             else if(item is Menu menu){
-                foreach (var subItem in menu.AsEnumerableYield())
+                foreach (var subItem in menu.GetMenuItemsYield())
                 {
                     yield return subItem;
                 }
@@ -52,5 +52,15 @@ public class Menu : IMenuComposite
     public void Remove(IMenuComposite item)
     {
         _menuItems.Remove(item);
+    }
+
+    public IEnumerator<MenuItem> GetEnumerator()
+    {
+        return GetMenuItems().GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }

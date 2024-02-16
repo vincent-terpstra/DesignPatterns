@@ -7,5 +7,5 @@ public interface IMenuComposite
 
     void Print();
 
-    IEnumerable<MenuItem> GetEnumerator();
+    IEnumerable<MenuItem> GetMenuItems();
 }

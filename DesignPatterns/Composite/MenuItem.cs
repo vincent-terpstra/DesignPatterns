@@ -14,7 +14,7 @@ public class MenuItem : IMenuComposite
         Console.WriteLine( $" -- {Description}");
     }
 
-    public IEnumerable<MenuItem> GetEnumerator()
+    public IEnumerable<MenuItem> GetMenuItems()
     {
         yield return this;
     }
