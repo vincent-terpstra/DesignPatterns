@@ -14,6 +14,9 @@ public class Menu : IMenuComposite, IEnumerable<MenuItem>
 
     public IEnumerable<MenuItem> GetMenuItems()
         => _menuItems.SelectMany(item => item.GetMenuItems());
+
+    public IEnumerable<IMenuComposite> GetAllMenuComposites()
+        => new[] { this }.Concat(_menuItems.SelectMany(item => item.GetAllMenuComposites()));
     
     public IEnumerable<MenuItem> GetMenuItemsYield()
     {

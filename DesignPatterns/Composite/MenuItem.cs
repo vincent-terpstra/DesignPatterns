@@ -18,4 +18,7 @@ public class MenuItem : IMenuComposite
     {
         yield return this;
     }
+
+    public IEnumerable<IMenuComposite> GetAllMenuComposites()
+        => GetMenuItems();
 }

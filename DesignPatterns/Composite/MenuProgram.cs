@@ -8,9 +8,14 @@ public class MenuProgram
         
         //CreateMenu().Print();
 
-        foreach (var item in allMenus.Where(i => i.IsVegetarian))
+        // foreach (var item in allMenus.Where(i => i.IsVegetarian))
+        // {
+        //     item.Print();
+        // }
+
+        foreach (var item in allMenus.GetAllMenuComposites())
         {
-            item.Print();
+            Console.WriteLine(item.Name);
         }
     }
 

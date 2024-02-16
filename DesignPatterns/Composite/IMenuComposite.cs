@@ -8,4 +8,5 @@ public interface IMenuComposite
     void Print();
 
     IEnumerable<MenuItem> GetMenuItems();
+    IEnumerable<IMenuComposite> GetAllMenuComposites();
 }
