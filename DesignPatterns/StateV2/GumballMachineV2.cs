@@ -22,6 +22,7 @@ public class GumballMachineV2 : IGumballState
         NoQuarterState = new(this);
         SoldState = new(this);
         SoldOutState = new(this);
+        WinnerState = new(this);
 
         _state = count > 0 ? NoQuarterState : SoldOutState;
     }
@@ -33,10 +34,15 @@ public class GumballMachineV2 : IGumballState
 
     public void ReleaseBall()
     {
-        if (Count != 0)
+        Console.WriteLine("A gumball comes rolling out the slot");
+        if (Count > 0)
         {
-            Console.WriteLine("A gumball comes rolling out the slot");
             Count--;
+            SetState(NoQuarterState);
+        }
+        else
+        {
+            SetState(SoldOutState);
         }
     }
 

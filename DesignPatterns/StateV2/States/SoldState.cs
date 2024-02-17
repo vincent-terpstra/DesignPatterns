@@ -27,15 +27,5 @@ public class SoldState : IGumballState
     public void Dispense()
     {
         _gumballMachineV2.ReleaseBall();
-        if (_gumballMachineV2.Count > 0)
-        {
-            _gumballMachineV2.SetState(_gumballMachineV2.NoQuarterState);
-        }
-        else
-        {
-            Console.WriteLine("Oops out of gumballs");
-            _gumballMachineV2.SetState(_gumballMachineV2.SoldOutState);
-        }
-        
     }
 }
