@@ -10,6 +10,8 @@ public class GumballMachineV2 : IGumballState
     public SoldOutState SoldOutState { get; }
     public WinnerState WinnerState { get; }
 
+    public IGumballState CurrentState => _state;
+    
     private IGumballState _state { get; set; }
     
     public int Count { get; private set; }
