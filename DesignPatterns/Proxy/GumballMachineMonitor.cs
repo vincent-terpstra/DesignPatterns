@@ -2,17 +2,17 @@
 
 public class GumballMachineMonitor
 {
-    private readonly GumBallMachineLocation _gumBallMachineLocation;
+    private readonly IGumballMachine _gumBallMachine;
 
-    public GumballMachineMonitor(GumBallMachineLocation gumBallMachineLocation)
+    public GumballMachineMonitor(IGumballMachine gumBallMachine)
     {
-        _gumBallMachineLocation = gumBallMachineLocation;
+        _gumBallMachine = gumBallMachine;
     }
 
     public void Report()
     {
-        Console.WriteLine($"Gumball Machine: {_gumBallMachineLocation.Location}");
-        Console.WriteLine($"Current Inventory: {_gumBallMachineLocation.Count}");
-        Console.WriteLine($"Current State: {_gumBallMachineLocation.CurrentState.GetType().Name}");
+        Console.WriteLine($"Gumball Machine: {_gumBallMachine.Location}");
+        Console.WriteLine($"Current Inventory: {_gumBallMachine.Count}");
+        Console.WriteLine($"Current State: {_gumBallMachine.CurrentState.GetType().Name}");
     }
 }

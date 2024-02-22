@@ -2,7 +2,7 @@
 
 namespace DesignPatterns.Proxy;
 
-public class GumBallMachineLocation : GumballMachineV2
+public class GumBallMachineLocation : GumballMachineV2, IGumballMachine
 {
     public string Location { get; }
 
